@@ -69,6 +69,7 @@ module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        // loader: 'file-loader?publicPath=/static/res/&outputPath=font/'
         loader: 'url-loader',
         options: {
           limit: 10000,

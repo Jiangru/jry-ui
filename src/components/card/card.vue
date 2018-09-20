@@ -2,9 +2,6 @@
   div(:class="classes")
     div(:class="headClasses" v-if="showHead")
       slot(name="title")
-        p(v-if="title")
-          i(:class="icon" v-if="showIcon")
-          span {{ title }}
     div(:class="extraClasses" v-if="showExtra")
       slot(name="extra")
     div(:class="bodyClasses" :style="bodyStyles")
@@ -18,8 +15,7 @@ export default {
   data () {
     return {
       showHead: true,
-      showExtra: false,
-      showIcon: false
+      showExtra: false
     }
   },
   props: {
@@ -70,6 +66,10 @@ export default {
         return ''
       }
     }
+  },
+  mounted () {
+    this.showHead = this.title || this.$slots.title !== undefined
+    this.showExtra = this.$slots.extra !== undefined
   }
 }
 </script>

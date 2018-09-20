@@ -1,21 +1,48 @@
 <template lang="pug">
   .hello
     | 111
+    i(class="fa fa-chrome")
     .item-wrap
-      yi-card(title="你好蒋如意" dis-hover)
+      yi-card(v-if="showCard" :padding="20" icon="fa fa-chrome")
+        p(slot="title")
+          i(class="fa fa-chrome")
+          i(class="fa fa-bath")
+          span 你好蒋如意
+        div(slot='extra' @click="closeCard") 酷！
         div 智道金服蒋如意
+    .item-wrap
+      yi-tabs(value="name1")
+        yi-pane(label="标签一" name="name1") 标签一的内容
+        yi-pane(label="标签二" name="name2") 标签二的内容
+        yi-pane(label="标签三" name="name3") 标签三的内容
+        yi-pane(label="标签四" name="name4") 标签四的内容
+        yi-pane(label="标签五" name="name5") 标签五的内容
+        yi-pane(label="标签六" name="name6") 标签六的内容
+        yi-pane(label="标签七" name="name7") 标签七的内容
+        yi-pane(label="标签八" name="name8") 标签八的内容
+        yi-pane(label="标签九" name="name9") 标签九的内容
+        yi-pane(label="标签十" name="name10") 标签十的内容
 </template>
 
 <script>
 import yiCard from '@/components/card'
+import yiTabs from '@/components/tabs'
 export default {
   name: 'HelloWorld',
   components: {
-    yiCard
+    yiCard,
+    yiTabs,
+    yiPane: yiTabs.YiPane
   },
   data () {
     return {
+      showCard: true,
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    closeCard () {
+      this.showCard = false
     }
   }
 }
