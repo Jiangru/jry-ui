@@ -101,7 +101,6 @@ export default {
   methods: {
     getCurrentScrollOffset () {
       const { navStyle } = this
-      console.log(navStyle)
       return navStyle.transform
         ? Number(navStyle.transform.match(/translateX\(-(\d+(\.\d+)*)px\)/)[1])
         : 0
@@ -231,7 +230,8 @@ export default {
     }
   },
   mounted () {
-
+    let doc = this.$refs.navScroll
+    console.log(doc.offsetWidth)
   }
 }
 </script>

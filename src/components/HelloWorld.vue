@@ -11,7 +11,7 @@
         div(slot='extra' @click="closeCard") 酷！
         div 智道金服蒋如意
     .item-wrap
-      yi-tabs(value="name1")
+      yi-tabs(value="name1" :animated="false")
         yi-pane(label="标签一" name="name1") 标签一的内容
         yi-pane(label="标签二" name="name2") 标签二的内容
         yi-pane(label="标签三" name="name3") 标签三的内容
