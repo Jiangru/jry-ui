@@ -120,7 +120,6 @@ export default {
     scrollPrev () {
       const containerWidth = this.$refs.navScroll.offsetWidth
       const currentOffset = this.getCurrentScrollOffset()
-      console.log(containerWidth, currentOffset)
 
       if (!currentOffset) return
 
@@ -136,13 +135,13 @@ export default {
       const containerWidth = this.$refs.navScroll.offsetWidth
       // 当前位移的距离
       const currentOffset = this.getCurrentScrollOffset()
-      console.log(navWidth, currentOffset, containerWidth)
+
       if (navWidth - currentOffset <= containerWidth) return
 
       let newOffset = navWidth - currentOffset > containerWidth * 2
         ? currentOffset + containerWidth
         : navWidth - containerWidth
-      console.log(newOffset)
+
       this.setOffset(newOffset)
     },
     setOffset (value) {
@@ -230,8 +229,7 @@ export default {
     }
   },
   mounted () {
-    let doc = this.$refs.navScroll
-    console.log(doc.offsetWidth)
+    // let doc = this.$refs.navScroll
   }
 }
 </script>

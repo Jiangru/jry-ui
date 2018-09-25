@@ -22,17 +22,25 @@
         yi-pane(label="标签八" name="name8") 标签八的内容
         yi-pane(label="标签九" name="name9") 标签九的内容
         yi-pane(label="标签十" name="name10") 标签十的内容
+    // yi-row(:gutter="10" type="flex" align="top" justify="center")
+    yi-row(:gutter="10")
+      yi-col(span="12") col-span-12
+      yi-col(span="12") col-span-12
 </template>
 
 <script>
 import yiCard from '@/components/card'
 import yiTabs from '@/components/tabs'
+import yiRow from '@/components/row'
+import yiCol from '@/components/col'
 export default {
   name: 'HelloWorld',
   components: {
     yiCard,
     yiTabs,
-    yiPane: yiTabs.YiPane
+    yiPane: yiTabs.YiPane,
+    yiRow,
+    yiCol
   },
   data () {
     return {
