@@ -1,4 +1,67 @@
 .@{row-prefix-cls} {
   .make-row();
+  display: block;
+
+  &-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &:before,
+    &:after {
+      display: flex;
+    }
+    // x轴原点
+    &-start {
+      justify-content: flex-start;
+    }
+    // x轴居中
+    &-center {
+      justify-content: center;
+    }
+    // x轴末尾
+    &-end {
+      justify-content: end;
+    }
+    // x轴平分
+    &-space-between {
+      justify-content: space-between;
+    }
+    // x轴有间隔的平分
+    &-space-around {
+      justify-content: space-around;
+    }
+    // 顶部对齐
+    &-top {
+      align-items: flex-start;
+    }
+    // 居中对齐
+    &-middle {
+      align-items: center;
+    }
+    // 底部对齐
+    &-bottom {
+      align-items: flex-end;
+    }
+  }
+}
+
+.@{col-prefix-cls} {
+  position: relative;
+  display: block;
 }
 .make-grid();
+
+.make-grid(-xs);
+
+@media (min-width: @screen-sm-min) {
+  .make-grid(-sm);
+}
+
+@media (min-width: @screen-md-min) {
+  .make-grid(-md);
+}
+
+@media (min-width: @screen-lg-min) {
+  .make-grid(-lg);
+}

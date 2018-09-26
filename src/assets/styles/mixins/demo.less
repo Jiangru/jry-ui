@@ -1,0 +1,18 @@
+.demo-less(@class) {
+  .jiang(@index) {
+    @item: ~".jiang-@{class}-@{index}";
+    .jiang((@index + 1), @item);
+  }
+  .jiang(@index, @list) when (@index > 0) {
+    @item: ~".jiang-@{class}-@{index}";
+    .jiang((@index - 1), ~"@{list}, @{item}");
+  }
+  .jiang(@index, @list) when (@index = 0) {
+    @{list} {
+      display: block;
+      width: 10px;
+      height: 10px;
+    }
+  }
+  .jiang(10);
+}

@@ -47,6 +47,19 @@
   .loop-grid-columns((@index - 1), @class);
 }
 
+.loop-grid-columns(@index, @class) when (@index = 0) {
+  .@{col-prefix-cls}-span@{class}-@{index} {
+    display: none;
+  }
+  .@{col-prefix-cls}@{class}-push-@{index} {
+    left: auto;
+  }
+  .@{col-prefix-cls}@{class}-pull-@{index} {
+    right: auto;
+  }
+}
+
 .make-grid(@class: ~'') {
   .float-grid-columns(@class);
+  .loop-grid-columns(@grid-columns, @class);
 }

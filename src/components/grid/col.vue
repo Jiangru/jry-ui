@@ -63,8 +63,8 @@ export default {
       let style = {}
       if (this.gutter !== 0) {
         style = {
-          marginLeft: this.gutter / 2 + 'px',
-          marginRight: this.gutter / 2 + 'px'
+          paddingLeft: this.gutter / 2 + 'px',
+          paddingRight: this.gutter / 2 + 'px'
         }
       }
 
@@ -73,7 +73,6 @@ export default {
   },
   methods: {
     updateGutter () {
-      console.log(this.owner)
       this.owner.updateGutter(this.owner.gutter)
     }
   },
