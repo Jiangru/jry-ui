@@ -8,14 +8,14 @@ export function oneOf (value, validList) {
 }
 
 /* istanbul ignore next */
-export function hasClass(el, cls) {
-    if (!el || !cls) return false;
-    if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.');
-    if (el.classList) {
-        return el.classList.contains(cls);
-    } else {
-        return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
-    }
+export function hasClass (el, cls) {
+  if (!el || !cls) return false
+  if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.')
+  if (el.classList) {
+    return el.classList.contains(cls)
+  } else {
+    return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1
+  }
 }
 
 // Find component downward
@@ -51,7 +51,6 @@ export function findBrothersComponents (context, componentName, exceptMe = true)
 // 添加样式
 export function addClass (el, cls) {
   if (!el) return
-  console.log(el.classList, el.className, cls)
   let curClass = el.className
   const classes = (cls || '').split(' ')
 
@@ -73,5 +72,27 @@ export function addClass (el, cls) {
 
 // 移除样式
 export function removeClass (el, cls) {
-  console.log(el, cls)
+  if (!el || !cls) return
+  let classes = cls.split(' ')
+  let curClass = ' ' + el.className + ' '
+
+  for (let i = 0, j = classes.length; i < j; i++) {
+    const clsName = classes[i]
+    if (!clsName) return
+
+    if (el.classList) {
+      el.classList.remove(clsName)
+    } else {
+      if (hasClass(el, clsName)) {
+        curClass = curClass.replace(' ' + clsName + ' ', '')
+      }
+    }
+  }
+  if (!el.classList) {
+    el.className = trim(curClass)
+  }
+}
+
+const trim = function (string) {
+  return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
 }

@@ -51,8 +51,12 @@
     level(level="6") H6
     yi-collapse(v-model="name2")
       yi-panel(name="1")
-        | 蒋如意
-        p(slot="content") LOL之神
+        | LOL
+        div(slot="content")
+          p LOL历史
+          yi-collapse(v-model="name2")
+            yi-panel(name="1") LOL之神
+              p(slot="content") 蒋如意
       yi-panel(name="2")
         | 乔丹
         p(slot="content") NBA之神
@@ -88,7 +92,8 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       name1: '1',
       name2: '2',
-      name3: '3'
+      name3: '3',
+      showT: false
     }
   },
   methods: {

@@ -1,6 +1,7 @@
 <template lang="pug">
   div(:class="classes")
     div(:class="headClasses" @click="toggle")
+      i(class="fa fa-angle-right" v-if="!hideArrow")
       slot
     collapse-transition
       div(:class="contentClasses" v-show="isActive")

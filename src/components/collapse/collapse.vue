@@ -86,8 +86,12 @@ export default {
       this.$emit('on-change', newActiveKey)
     }
   },
+  mounted () {
+    this.setActive()
+  },
   watch: {
     value (val) {
+      console.log(val)
       this.currentValue = val
     },
     currentValue () {
