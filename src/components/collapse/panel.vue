@@ -10,9 +10,11 @@
 </template>
 <script>
 import collapseTransition from '@/components/base/collapse-transition'
+import Emitter from '@/mixins/emitter'
 const prefixCls = 'yi-collapse'
 export default {
   name: 'yiPanel',
+  mixins: [ Emitter ],
   components: {
     collapseTransition
   },
@@ -52,6 +54,7 @@ export default {
   },
   methods: {
     toggle () {
+      this.dispatch('yiCollapse', 'demoDispatch', 'dispatch666')
       this.$parent.toggle({
         name: this.name || this.index,
         isActive: this.isActive

@@ -33,6 +33,9 @@ export default {
     }
   },
   methods: {
+    demoDispatch (data) {
+      console.log(data)
+    },
     setActive () {
       let activeKey = this.getActive()
 
